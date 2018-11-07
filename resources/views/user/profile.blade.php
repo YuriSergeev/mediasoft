@@ -16,10 +16,14 @@
                         <li><h3>{{ $user->name }}</h3></li>
                         <form enctype="multipart/form-data" action="{{ route('post.store') }}" method="POST">
                             <li><input type="text" name="description" class="form-control" placeholder="Что нового?"></li>
-                            <li><a href="#" style="border: 1px solid #333; text-decoration: none; color:black; padding-left: 2px; ">Добавить фото:<input type="file" style="opacity: 0; margin-left:-20%; width:110px" name="image"></a></li>
+                            <li style="margin-left: 504px; margin-top: -6.7%">
+                                <div style="width: 44px; height: 36px; background: #afb9c5; border-radius: 5px; padding-left: 10px;">
+                                  <h2 style="padding-left: 4px">+<input type="file" style="opacity: 0;  width:10px; position: absolute; margin-left:-27px;" name="image"></h2>
+                                </div>
+                            </li>
                             <input type="hidden" name="user_id" value="{{ $user->id }}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <button type="submit" style="float: right; margin-top:-25px" class="btn btn-default">Опубликовать</button>
+                            <li><button type="submit" style="float: right; margin-top: 1%; background: #afb9c5;" class="btn btn-default">Опубликовать</button></li>
                         </form>
                     </ul>
                 </div>
