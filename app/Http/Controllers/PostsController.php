@@ -39,6 +39,7 @@ class PostsController extends Controller
     {
         $post = new Posts();
 
+        $post->user_id = $request->get('user_id');
         $post->description = $request->get('description');
         $image = $request->file('image');
         $filename = time() . '.' . $image->getClientOriginalExtension();
