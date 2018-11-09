@@ -92,6 +92,7 @@
                   </div>
                 </div>
                 <input type="hidden" name="user_id" value="{{ $user->id }}">
+                <input type="hidden" name="page" value="profile">
                 {{ csrf_field() }}
               </form>
             </div>

@@ -47,7 +47,15 @@ class PostsController extends Controller
         $post->image = $filename;
         $post->save();
 
-        return redirect()->route('profile');
+        switch ($request->get('page')) {
+          case 'news':
+            return redirect()->route('news');
+            break;
+
+          default:
+            return redirect()->route('profile');
+            break;
+        }
     }
 
     /**
