@@ -9,8 +9,13 @@ use Auth;
 
 class WelcomeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+      
     public function index()
     {
-        return view('welcome', array('users'=>User::all(), 'posts'=>Posts::all()))->with('auth_user', Auth::user());
+        return view('welcome', array('users'=>User::all(), 'posts'=>Posts::orderBy('id', 'desc')->get()))->with('auth_user', Auth::user());
     }
 }

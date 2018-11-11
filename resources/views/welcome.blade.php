@@ -24,6 +24,7 @@
           <div class="tab-pane active" id="user-posts">
           @foreach($posts as $post)
               @foreach($users as $user)
+                
                 @if($user->id == $post->user_id)
                 <div class="timeline-post">
                   <div class="dropdown" style="float: right;">
@@ -47,10 +48,10 @@
                     @endif
                   </div>
 
-                  <div class="post-media"><a href="#"><img class="img" src="img/default.png"></a>
+                  <div class="post-media"><a href="#"><img class="img" src="/storage/avatars/{{ $user->avatar }}"></a>
                     <div class="content">
                       <h5><a href="#">{{ $user->name }} {{ $user->surname }}</a></h5>
-                      <p class="text-muted"><small>2 January at 9:30</small></p>
+                      <p class="text-muted"><small>{{ date('m F H:i'), strtotime($post->created_at) }}</small></p>
                     </div>
                   </div>
                   <div class="post-content">
@@ -92,7 +93,7 @@
                     <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i> Save</button>
                   </div>
                 </div>
-                <input type="hidden" name="user_id" value="{{ $user->id }}">
+                <input type="hidden" name="user_id" value="{{ $auth_user->id }}">
                 <input type="hidden" name="page" value="news">
                 {{ csrf_field() }}
               </form>

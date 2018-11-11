@@ -25,5 +25,6 @@ Route::prefix('admin')->group(function() {
 });
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::post('/profile', 'ProfileController@update_setting')->name('update.setting');
 
 Route::resource('/post', 'PostsController');

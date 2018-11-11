@@ -68,7 +68,7 @@
     @else
       <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
       <aside class="app-sidebar">
-        <div class="app-sidebar__user"><img class="app-sidebar__user-avatar img" src="img/default.png" alt="User Image">
+        <div class="app-sidebar__user"><img class="app-sidebar__user-avatar img" src="/storage/avatars/{{ Auth::user()->avatar }}" alt="User Image">
           <div>
             <p class="app-sidebar__user-name">Yuri Sergeev</p>
             <p class="app-sidebar__user-designation">18 years</p>

@@ -8,7 +8,7 @@
 <div class="row user">
       <div class="col-md-12">
         <div class="profile">
-          <div class="info"><img class="img"  src="img/default.png">
+          <div class="info"><img style="width:100%"  src="/storage/avatars/{{ Auth::user()->avatar }}">
             <h4>{{ Auth::user()->name }} {{ Auth::user()->surname }}</h4>
             <p>18 years</p>
           </div>
@@ -48,7 +48,7 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="post-media"><a href="#"><img class="img" src="img/default.png"></a>
+                  <div class="post-media"><a href="#"><img class="img" src="/storage/avatars/{{ Auth::user()->avatar }}"></a>
                     <div class="content">
                       <h5><a href="#">{{ Auth::user()->name }} {{ Auth::user()->surname }}</a></h5>
                       <p class="text-muted"><small>2 January at 9:30</small></p>
@@ -100,26 +100,33 @@
           <div class="tab-pane fade" id="user-settings">
             <div class="tile user-settings">
               <h4 class="line-head">Settings</h4>
-              <form>
+              <form enctype="multipart/form-data" action="{{ route('update.setting') }}" method="POST">
                 <div class="row mb-4">
                   <div class="col-md-4">
                     <label>First Name</label>
-                    <input class="form-control" type="text">
+                    <input class="form-control" name="name" type="text">
                   </div>
                   <div class="col-md-4">
                     <label>Last Name</label>
-                    <input class="form-control" type="text">
+                    <input class="form-control" name="surname" type="text">
                   </div>
                 </div>
-                <div class="row">
+                <div class="row mb-4">
+                  <div class="col-md-4">
+                    <label for="exampleInputFile">Image input</label>
+                    <input name="avatar" class="form-control-file" id="exampleInputFile" type="file" aria-describedby="fileHelp">
+                  </div>
+                </div>
+                <!-- <div class="row">
                   <div class="col-md-8 mb-4">
                     <label>Email</label>
                     <input class="form-control" type="text">
                   </div>
-                </div>
+                </div> -->
+                {{ csrf_field() }}
                 <div class="row mb-10">
                   <div class="col-md-12">
-                    <button class="btn btn-primary" type="button"><i class="fa fa-fw fa-lg fa-check-circle"></i> Save</button>
+                    <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i> Save</button>
                   </div>
                 </div>
               </form>
