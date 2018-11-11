@@ -26,6 +26,18 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        return view('admin.admin');
+    }
+    public function indexPosts()
+    {
+        return view('admin.postsTable', array('posts'=>Posts::all(), 'users'=>User::all()));
+    }
+    public function indexUsers()
+    {
+        return view('admin.usersTable', array('users'=>User::all()));
+    }
+    public function indexMail()
+    {
+        return view('admin.mail');
     }
 }

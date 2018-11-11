@@ -12,10 +12,7 @@
         <div class="tile p-0">
           <ul class="nav flex-column nav-tabs user-tabs">
             <li class="nav-item"><a class="nav-link active" href="#user-posts" data-toggle="tab">News</a></li>
-            @guest
-            @else
               <li class="nav-item"><a class="nav-link" href="#user-create-post" data-toggle="tab">Create post</a></li>
-            @endguest
           </ul>
         </div>
       </div>
@@ -24,7 +21,7 @@
           <div class="tab-pane active" id="user-posts">
           @foreach($posts as $post)
               @foreach($users as $user)
-                
+
                 @if($user->id == $post->user_id)
                 <div class="timeline-post">
                   <div class="dropdown" style="float: right;">
@@ -69,8 +66,6 @@
               @endforeach
             @endforeach
           </div>
-          @guest
-          @else
 
           <div class="tab-pane fade" id="user-create-post">
             <div class="tile user-create-post">
@@ -99,7 +94,6 @@
               </form>
             </div>
           </div>
-          @endguest
         </div>
       </div>
       </div>

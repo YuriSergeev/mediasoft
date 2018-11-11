@@ -19,6 +19,9 @@ Route::get('/user/logout', 'Auth\LoginController@logout')->name('user.logout');
 
 Route::prefix('admin')->group(function() {
   Route::get('/', 'AdminController@index')->name('admin');
+  Route::get('/posts', 'AdminController@indexPosts')->name('admin.posts');
+  Route::get('/users', 'AdminController@indexUsers')->name('admin.users');
+  Route::get('/mail', 'AdminController@indexMail')->name('admin.mail');
   Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
   Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
   Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');

@@ -51,7 +51,7 @@
       </div>
 
       <div class="form-group">
-        <label class="control-label">PASSWORD</label>
+        <label class="control-label">Password</label>
         <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
         @if ($errors->has('password'))
             <span class="invalid-feedback" role="alert">
