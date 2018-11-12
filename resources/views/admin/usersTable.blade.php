@@ -24,7 +24,6 @@
               <th>City</th>
               <th>Date of birth</th>
               <th>Registration date</th>
-              <th>Tampering</th>
             </tr>
           </thead>
           <tbody>
@@ -35,13 +34,6 @@
                 <td>{{ $user->sity }}</td>
                 <td>{{ $user->date }}</td>
                 <td>{{ date('m F H:i'), strtotime($user->created_at) }}</td>
-                <td>
-                  <ul class="center">
-                    <li><a href=""><i class="fa fa-external-link" aria-hidden="true"></i></a></li>
-                    <li><a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                    <li><a href=""><i class="fa fa-trash" aria-hidden="true"></i></a></li>
-                  </ul>
-                </td>
               </tr>
             @endforeach
           </tbody>

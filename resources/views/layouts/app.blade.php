@@ -70,14 +70,12 @@
       <aside class="app-sidebar">
         <div class="app-sidebar__user"><img class="app-sidebar__user-avatar img" src="/storage/avatars/{{ Auth::user()->avatar }}" alt="User Image">
           <div>
-            <p class="app-sidebar__user-name">Yuri Sergeev</p>
-            <p class="app-sidebar__user-designation">18 years</p>
+            <p class="app-sidebar__user-name">{{ Auth::user()->name }} {{ Auth::user()->surname }}</p>
           </div>
         </div>
         <ul class="app-menu">
           <li><a class="app-menu__item" href="{{ route('profile') }}"><i class="app-menu__icon fa fa-user-circle-o"></i><span class="app-menu__label">Profile</span></a></li>
           <li><a class="app-menu__item" href="{{ route('news') }}"><i class="app-menu__icon fa fa-th-large"></i><span class="app-menu__label">News</span></a></li>
-          <li><a class="app-menu__item" href=""><i class="app-menu__icon fa fa-bell-o"></i><span class="app-menu__label">Notification</span></a></li>
         </ul>
       </aside>
     @endguest

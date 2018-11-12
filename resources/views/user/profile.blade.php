@@ -10,7 +10,6 @@
         <div class="profile">
           <div class="info"><img style="width:100%"  src="/storage/avatars/{{ Auth::user()->avatar }}">
             <h4>{{ Auth::user()->name }} {{ Auth::user()->surname }}</h4>
-            <p>{{ date('m F'), strtotime(Auth::user()->date) }}</p>
           </div>
           <div class="cover-image"></div>
         </div>
@@ -41,6 +40,7 @@
                       </li>
                       <li>
                         <form action="{{ route('post.destroy', ['id'=>$post->id]) }}" method="POST">
+                            <input type="hidden" name="page" value="profile">
                             {{ method_field('DELETE') }}
                             {{ csrf_field() }}
                             <li><button type="submit" class="dropdown-item" style="border: none; outline: none; background: none;"><i class="fa fa-trash"></i> Remove</a></button></li>
@@ -110,16 +110,6 @@
                   <div class="col-md-4">
                     <label>Last Name</label>
                     <input class="form-control" name="surname" type="text" value="{{ Auth::user()->surname }}">
-                  </div>
-                </div>
-                <div class="row mb-4">
-                  <div class="col-md-4">
-                    <label>Your city</label>
-                    <input class="form-control" name="sity" type="text">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="exampleInputFile">Date of birth</label>
-                    <input type="date" class="form-control" id="date" name="date" placeholder="Дата">
                   </div>
                 </div>
                 <div class="row mb-4">

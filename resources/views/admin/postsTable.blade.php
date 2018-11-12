@@ -35,26 +35,21 @@
               <td>{{ $post->description }}</td>
               @foreach($users as $user)
                 @if($user->id == $post->user_id)
-                  <td>{{ $user->name }}</td>
+                  <td>{{ $user->name }} {{ $user->surname }}</td>
                 @endif
               @endforeach
               <td>{{ date('m F H:i'), strtotime($post->created_at) }}</td>
               <td>
                 <ul class="center">
                   <li>
-                    <form action="{{ route('post.edit', ['id'=>$post->id]) }}" method="GET">
-                        {{ csrf_field() }}
-                        <button type="submit" class="dropdown-item" style="border: none; outline: none; background: none;"><i class="fa fa-external-link"></i> Show</button>
-                    </form>
-                  </li>
-                  <li>
-                    <form action="{{ route('post.edit', ['id'=>$post->id]) }}" method="GET">
+                    <form action="{{ route('admin.edit', ['id'=>$post->id]) }}" method="GET">
                         {{ csrf_field() }}
                         <button type="submit" class="dropdown-item" style="border: none; outline: none; background: none;"><i class="fa fa-pencil"></i> Edit</button>
                     </form>
                   </li>
                   <li>
                     <form action="{{ route('post.destroy', ['id'=>$post->id]) }}" method="POST">
+                        <input type="hidden" name="page" value="admin.posts">
                         {{ method_field('DELETE') }}
                         {{ csrf_field() }}
                         <li><button type="submit" class="dropdown-item" style="border: none; outline: none; background: none;"><i class="fa fa-trash"></i> Remove</a></button></li>

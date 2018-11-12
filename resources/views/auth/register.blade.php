@@ -49,7 +49,6 @@
             </span>
         @endif
       </div>
-
       <div class="form-group">
         <label class="control-label">Password</label>
         <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
@@ -59,14 +58,10 @@
             </span>
         @endif
       </div>
-
-
       <div class="form-group">
         <label class="control-label">Confirm password</label>
         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
       </div>
-
-
       <div class="form-group btn-container">
         <button class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>SIGN IN</button>
       </div>

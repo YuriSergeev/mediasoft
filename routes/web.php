@@ -18,8 +18,9 @@ Auth::routes();
 Route::get('/user/logout', 'Auth\LoginController@logout')->name('user.logout');
 
 Route::prefix('admin')->group(function() {
-  Route::get('/', 'AdminController@index')->name('admin');
+  Route::get('/', 'AdminController@index')->name('admin.dashboard');
   Route::get('/posts', 'AdminController@indexPosts')->name('admin.posts');
+  Route::get('/posts/{id}/edit', 'AdminController@edit')->name('admin.edit');
   Route::get('/users', 'AdminController@indexUsers')->name('admin.users');
   Route::get('/mail', 'AdminController@indexMail')->name('admin.mail');
   Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');

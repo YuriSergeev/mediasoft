@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appAdmin')
 
 @section('content')
 <div class="container">
@@ -13,8 +13,8 @@
                             <li><input type="text" name="description" class="form-control" value="{{ $post->description }}"></li>
                             <img src="/storage/image/{{ $post->image }}" style="width:100%">
                             <li><input type="file" name="image"></li>
-                            <input type="hidden" name="user_id" value="{{ $user->id }}">
-                            <input type="hidden" name="page" value="profile">
+                            <input type="hidden" name="user_id" value="{{ $post->user_id }}">
+                            <input type="hidden" name="page" value="admin.posts">
                             {{ method_field('PUT') }}
                             {{ csrf_field() }}
                             <li><button type="submit" style="float: right;" class="btn btn-default">Опубликовать</button></li>

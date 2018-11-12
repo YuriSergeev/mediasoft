@@ -103,7 +103,16 @@ class PostsController extends Controller
         }
         $post->save();
 
-        return redirect()->route('profile');
+        switch ($request->get('page')) {
+          case 'admin.posts':
+            $page = 'admin.posts';
+            break;
+
+          default:
+            $page = 'profile';
+            break;
+        }
+        return redirect()->route($page);
     }
 
     /**
@@ -112,9 +121,19 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         Posts::find($id)->delete();
-        return redirect()->route('profile');
+
+        switch ($request->get('page')) {
+          case 'admin.posts':
+            $page = 'admin.posts';
+            break;
+
+          default:
+            $page = 'profile';
+            break;
+        }
+        return redirect()->route($page);
     }
 }

@@ -20,14 +20,15 @@ class ProfileController extends Controller
     }
     //\Storage::makeDirectory($data['name']);
 
-    public function update_setting(Request $request){
-        $date = $request->get('date');
-
-
-        if(isset($data)){
-      		$user->data = $request->get('date');
-      		$user->save();
-      	}
+    public function update_setting(Request $request)
+    {
+        if($request->has('name') && $request->has('surname'))
+        {
+          $user = Auth::user();
+          $user->name = $request->get('name');
+          $user->surname = $request->get('surname');
+          $user->save();
+        }
 
       	if($request->hasFile('avatar')){
       		$avatar = $request->file('avatar');
@@ -37,6 +38,6 @@ class ProfileController extends Controller
       		$user->avatar = $filename;
       		$user->save();
       	}
-      	return view('user.profile', array('user' => Auth::user()) );
+      	return redirect()->route('profile');
     }
 }
