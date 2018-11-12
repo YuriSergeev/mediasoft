@@ -16,27 +16,27 @@ class ProfileController extends Controller
 
     public function index()
     {
-        return view('user.profile', array('user'=>Auth::user(), 'posts'=>Posts::all()));
+        return view('user.profile', array('user'=>Auth::user(), 'posts'=>Posts::orderBy('id', 'desc')->get()));
     }
     //\Storage::makeDirectory($data['name']);
 
     public function update_setting(Request $request){
-      $name = $request->get('name');
-      $surname = $request->get('surname');
-      if(isset($name) && isset($surname)){
-    		$user->name = $request->get('name');
-        $user->surname = $request->get('surname');
-    		$user->save();
-    	}
-      // Handle the user upload of avatar
-    	if($request->hasFile('avatar')){
-    		$avatar = $request->file('avatar');
-    		$filename = time() . '.' . $avatar->getClientOriginalExtension();
-    		Image::make($avatar)->resize(300, 300)->save( public_path('/storage/avatars/' . $filename ) );
-    		$user = Auth::user();
-    		$user->avatar = $filename;
-    		$user->save();
-    	}
-    	return view('user.profile', array('user' => Auth::user()) );
+        $date = $request->get('date');
+
+
+        if(isset($data)){
+      		$user->data = $request->get('date');
+      		$user->save();
+      	}
+
+      	if($request->hasFile('avatar')){
+      		$avatar = $request->file('avatar');
+      		$filename = time() . '.' . $avatar->getClientOriginalExtension();
+      		Image::make($avatar)->resize(300, 300)->save( public_path('/storage/avatars/' . $filename ) );
+      		$user = Auth::user();
+      		$user->avatar = $filename;
+      		$user->save();
+      	}
+      	return view('user.profile', array('user' => Auth::user()) );
     }
 }

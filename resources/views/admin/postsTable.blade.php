@@ -41,7 +41,12 @@
               <td>{{ date('m F H:i'), strtotime($post->created_at) }}</td>
               <td>
                 <ul class="center">
-                  <li><a href=""><i class="fa fa-external-link" aria-hidden="true"></i></a></li>
+                  <li>
+                    <form action="{{ route('post.edit', ['id'=>$post->id]) }}" method="GET">
+                        {{ csrf_field() }}
+                        <button type="submit" class="dropdown-item" style="border: none; outline: none; background: none;"><i class="fa fa-external-link"></i> Show</button>
+                    </form>
+                  </li>
                   <li>
                     <form action="{{ route('post.edit', ['id'=>$post->id]) }}" method="GET">
                         {{ csrf_field() }}

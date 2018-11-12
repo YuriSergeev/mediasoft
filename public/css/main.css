@@ -15233,13 +15233,10 @@ be a descendant of the grid when it is being dragged.
 
 .center {
   margin: 0;
-  padding: 4px;
+  padding: 0px;
   list-style: none;
-  text-align: center;
 }
 
 ul.center li {
-  display: inline; /* Отображать как строчный элемент */
-  margin-right: 5px; /* Отступ слева */
-  padding: 3px; /* Поля вокруг текста */
+  display: inline;
 }

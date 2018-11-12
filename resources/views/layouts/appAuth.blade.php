@@ -11,6 +11,16 @@
     <title>@yield('title')</title>
   </head>
   <body>
+    <div class="app-header">
+      <ul class="nav" style="list-style-type: none;">
+        <li class="nav-item" style="margin-top: 0.5%;">
+            <a class="nav-link" style="color: white;" href="{{ route('login') }}">Login</a>
+        </li>
+        <li class="nav-item" style="margin-top: 0.5%;">
+            <a class="nav-link" style="color: white;" href="{{ route('register') }}">Register</a>
+        </li>
+      <ul>
+    </div>
     @yield('content')
     <!-- Essential javascripts for application to work-->
     <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>

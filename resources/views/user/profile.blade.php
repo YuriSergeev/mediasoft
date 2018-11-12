@@ -10,7 +10,7 @@
         <div class="profile">
           <div class="info"><img style="width:100%"  src="/storage/avatars/{{ Auth::user()->avatar }}">
             <h4>{{ Auth::user()->name }} {{ Auth::user()->surname }}</h4>
-            <p>18 years</p>
+            <p>{{ date('m F'), strtotime(Auth::user()->date) }}</p>
           </div>
           <div class="cover-image"></div>
         </div>
@@ -51,7 +51,7 @@
                   <div class="post-media"><a href="#"><img class="img" src="/storage/avatars/{{ Auth::user()->avatar }}"></a>
                     <div class="content">
                       <h5><a href="#">{{ Auth::user()->name }} {{ Auth::user()->surname }}</a></h5>
-                      <p class="text-muted"><small>2 January at 9:30</small></p>
+                      <p class="text-muted"><small>{{ date('m F H:i'), strtotime($post->created_at) }}</small></p>
                     </div>
                   </div>
                   <div class="post-content">
@@ -65,11 +65,12 @@
                     <li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> 5 Comments</li>
                   </ul>
 
+
                 </div>
-              </div>
                 @endif
             @endforeach
 
+          </div>
           <div class="tab-pane fade" id="user-create-post">
             <div class="tile user-create-post">
               <h4 class="line-head">Create post</h4>
@@ -104,11 +105,21 @@
                 <div class="row mb-4">
                   <div class="col-md-4">
                     <label>First Name</label>
-                    <input class="form-control" name="name" type="text">
+                    <input class="form-control" name="name" type="text" value="{{ Auth::user()->name }}">
                   </div>
                   <div class="col-md-4">
                     <label>Last Name</label>
-                    <input class="form-control" name="surname" type="text">
+                    <input class="form-control" name="surname" type="text" value="{{ Auth::user()->surname }}">
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <div class="col-md-4">
+                    <label>Your city</label>
+                    <input class="form-control" name="sity" type="text">
+                  </div>
+                  <div class="col-md-4">
+                    <label for="exampleInputFile">Date of birth</label>
+                    <input type="date" class="form-control" id="date" name="date" placeholder="Дата">
                   </div>
                 </div>
                 <div class="row mb-4">
@@ -117,12 +128,6 @@
                     <input name="avatar" class="form-control-file" id="exampleInputFile" type="file" aria-describedby="fileHelp">
                   </div>
                 </div>
-                <!-- <div class="row">
-                  <div class="col-md-8 mb-4">
-                    <label>Email</label>
-                    <input class="form-control" type="text">
-                  </div>
-                </div> -->
                 {{ csrf_field() }}
                 <div class="row mb-10">
                   <div class="col-md-12">

@@ -15,7 +15,7 @@
     <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
       <div class="info">
         <h4>Users</h4>
-        <p><b>5</b></p>
+        <p><b>{{ $users }}</b></p>
       </div>
     </div>
   </div>
@@ -31,7 +31,7 @@
     <div class="widget-small warning coloured-icon"><i class="icon fa fa-table fa-3x"></i>
       <div class="info">
         <h4>Posts</h4>
-        <p><b>10</b></p>
+        <p><b>{{ $posts }}</b></p>
       </div>
     </div>
   </div>

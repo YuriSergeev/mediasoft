@@ -21,7 +21,6 @@
             <tr>
               <th>ID</th>
               <th>Name</th>
-              <th>Post</th>
               <th>City</th>
               <th>Date of birth</th>
               <th>Registration date</th>
@@ -29,21 +28,22 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>John Hell</td>
-              <td>23</td>
-              <td>London</td>
-              <td>20</td>
-              <td>2012/10/13</td>
-              <td>
-                <ul class="center">
-                  <li><a href=""><i class="fa fa-external-link" aria-hidden="true"></i></a></li>
-                  <li><a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                  <li><a href=""><i class="fa fa-trash" aria-hidden="true"></i></a></li>
-                </ul>
-              </td>
-            </tr>
+            @foreach($users as $user)
+              <tr>
+                <td>{{ $user->id }}</td>
+                <td>{{ $user->name }}</td>
+                <td>{{ $user->sity }}</td>
+                <td>{{ $user->date }}</td>
+                <td>{{ date('m F H:i'), strtotime($user->created_at) }}</td>
+                <td>
+                  <ul class="center">
+                    <li><a href=""><i class="fa fa-external-link" aria-hidden="true"></i></a></li>
+                    <li><a href=""><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                    <li><a href=""><i class="fa fa-trash" aria-hidden="true"></i></a></li>
+                  </ul>
+                </td>
+              </tr>
+            @endforeach
           </tbody>
         </table>
       </div>
